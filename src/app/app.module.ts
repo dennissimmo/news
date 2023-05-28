@@ -11,6 +11,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AddNewsButtonComponent } from './pages/news/add-news-button/add-news-button.component';
 import { NewsComponent } from "./pages/news/news.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NewsComponent } from "./pages/news/news.component";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
