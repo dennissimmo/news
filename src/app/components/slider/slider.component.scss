@@ -1,0 +1,50 @@
+$arrow: white;
+
+.slider {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+
+  .slider-button {
+
+    &__prev,
+    &__next {
+      position: absolute;
+      top: 0;
+      width: 2.5rem;
+      height: 100%;
+
+      &:hover::after {
+        opacity: 1;
+      }
+    }
+
+    &__next {
+      right: 20px;
+    }
+
+    &__right {
+      left: 20px;
+    }
+
+    &__prev::after,
+    &__next::after {
+      content: ' ';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: 50%;
+      left: 54%;
+      border-right: 4px solid $arrow;
+      border-bottom: 4px solid $arrow;
+      opacity: .7;
+      transform: translate(-50%, -50%) rotate(135deg);
+    }
+
+    &__next::after {
+      left: 40%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+  }
+}

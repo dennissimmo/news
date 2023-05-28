@@ -1,0 +1,7 @@
+<div class="slider">
+  <ng-content></ng-content>
+  <ng-container *ngIf="controls">
+    <div class="slider-button__prev" (click)="movePrev()"></div>
+    <div class="slider-button__next" (click)="moveNext()"></div>
+  </ng-container>
+</div>

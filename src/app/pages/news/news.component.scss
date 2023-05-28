@@ -1,0 +1,8 @@
+.news {
+  display: flex;
+  flex-direction: column;
+
+  &__slider {
+    height: 300px;
+  }
+}
