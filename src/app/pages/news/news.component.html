@@ -1,15 +1,32 @@
 <div class="news">
-  <div class="news__slider">
-    <app-slider [controls]="true" [autoPlay]="false">
-      <img class="slide" src="https://ligazakon.net/static_liga_net/IMAGES/NZ204998.jpg" alt="">
-      <img class="slide" src="https://ligazakon.net/static_liga_net/IMAGES/2_062.jpg" alt="">
-      <img class="slide" src="https://ligazakon.net/static_liga_net/IMAGES/20170315_182.jpg" alt="">
-      <img class="slide" src="https://ligazakon.net/static_liga_net/IMAGES/NZ204998.jpg" alt="">
-      <img class="slide" src="https://ligazakon.net/static_liga_net/IMAGES/2_062.jpg" alt="">
-      <img class="slide" src="https://ligazakon.net/static_liga_net/IMAGES/20170315_182.jpg" alt="">
-    </app-slider>
+  <div class="news__last border-round">
+    <h2 class="mat-h2">
+      Останні новини
+    </h2>
+    <div class="news__slider">
+      <app-slider [controls]="true" [autoPlay]="true">
+          <div class="slide" *ngFor="let news of lastNews | async">
+            <img [src]="news.imageMiddle" [alt]="news.title">
+            <div class="slider-caption">
+              <h3 class="title">{{ news.title }}</h3>
+              <p class="description">{{ news.description | truncate }}</p>
+            </div>
+          </div>
+      </app-slider>
+    </div>
   </div>
-  <div class="news__list">
-
+  <div class="news-list-container border-round">
+    <h2 class="mat-h2">Список новин</h2>
+    <div class="container">
+      <div class="news__list">
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+        <app-news-list [newsList]="newsSubject.value"></app-news-list>
+      </div>
+      <div class="news__details border-round">
+        <router-outlet name="details"></router-outlet>
+      </div>
+    </div>
   </div>
+  <app-add-news-button (addNewsClicked)="onNewsAddedClick()"></app-add-news-button>
 </div>
+

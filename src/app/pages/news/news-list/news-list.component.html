@@ -1,1 +1,6 @@
-<p>news-list works!</p>
+<div class="news-list">
+  <div class="news-list__item" *ngFor="let news of newsList; trackBy: trackById">
+    <app-news-card [news]="news" (newsSelected)="onNewsSelected($event)">
+    </app-news-card>
+  </div>
+</div>

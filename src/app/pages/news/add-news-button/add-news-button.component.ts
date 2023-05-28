@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-add-news-button',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AddNewsButtonComponent {
 
+  @Output() addNewsClicked: EventEmitter<void> = new EventEmitter<void>();
+
+  onClick(): void {
+    this.addNewsClicked.emit();
+  }
 }

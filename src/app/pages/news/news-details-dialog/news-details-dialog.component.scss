@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: .5rem;
+  height: 100%;
+
+  .description {
+    overflow: auto;
+  }
+}
+
+.mat-mdc-dialog-actions {
+  margin-top: auto;
+  justify-content: center;
+}

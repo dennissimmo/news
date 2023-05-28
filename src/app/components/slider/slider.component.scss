@@ -1,9 +1,13 @@
-$arrow: white;
+@import "base/variables";
 
 .slider {
   position: relative;
   height: 100%;
   overflow: hidden;
+
+  img {
+    width: 100%;
+  }
 
   .slider-button {
 
@@ -20,23 +24,24 @@ $arrow: white;
     }
 
     &__next {
-      right: 20px;
+      right: 10px;
     }
 
-    &__right {
-      left: 20px;
+    &__prev {
+      left: 10px;
     }
 
     &__prev::after,
     &__next::after {
       content: ' ';
+      cursor: pointer;
       position: absolute;
       width: 10px;
       height: 10px;
       top: 50%;
       left: 54%;
-      border-right: 4px solid $arrow;
-      border-bottom: 4px solid $arrow;
+      border-right: 4px solid $border-color;
+      border-bottom: 4px solid $border-color;
       opacity: .7;
       transform: translate(-50%, -50%) rotate(135deg);
     }

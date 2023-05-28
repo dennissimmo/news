@@ -1,27 +1,26 @@
-import { AfterContentChecked, AfterContentInit, Component, ContentChild, ContentChildren, Input } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, Component, Input, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss']
 })
-export class SliderComponent implements AfterContentInit {
+export class SliderComponent implements AfterContentInit, AfterContentChecked, OnDestroy {
 
   @Input() controls: boolean;
   @Input() autoPlay: boolean;
 
   interval = 3000;
 
-  slideClassName = 'slide';
   slides: HTMLCollectionOf<Element>;
+  slideClassName = 'slide';
   slidesAmount: number;
-  // @ContentChild('slides') slides: any;
   slide: number;
   intervalId: number;
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     this.slides = document.getElementsByClassName('slide');
-    if (this.slides) {
+    if (this.slides && this.slides.length > 0) {
       this.slidesAmount = this.slides.length;
       this.slide = 0;
       this._setInitialClasses();
@@ -29,6 +28,22 @@ export class SliderComponent implements AfterContentInit {
         this._autoPlayInterval();
       }
     }
+  }
+
+  ngAfterContentChecked(): void {
+    this.slides = document.getElementsByClassName('slide');
+    if (this.slides && this.slides.length > 0 && this.slidesAmount !== this.slides.length) {
+      this.slidesAmount = this.slides.length;
+      this.slide = 0;
+      this._setInitialClasses();
+      if (this.autoPlay) {
+        this._autoPlayInterval();
+      }
+    }
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId);
   }
 
   private _autoPlayInterval(): void {

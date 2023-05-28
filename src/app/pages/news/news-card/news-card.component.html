@@ -1,1 +1,30 @@
-<p>news-card works!</p>
+<div class="news-card">
+  <div class="news-card__image">
+    <img [src]="news.image" [alt]="news.title">
+  </div>
+  <div class="news-card__content news">
+    <div class="news__information information">
+      <div class="information__date date">
+        <mat-icon class="icon">date_range</mat-icon>
+        <div class="date__text">
+          {{ news.date | date: 'd MMMM yyyy, HH:mm' }}
+        </div>
+      </div>
+      <div class="separator"></div>
+      <div class="information__views views">
+        <mat-icon class="icon">visibility</mat-icon>
+        <span class="views__count">
+          {{ news.viewCount }}
+        </span>
+      </div>
+    </div>
+    <div class="news__title" (click)="onSelected()">
+      {{ news.title }}
+    </div>
+    <div class="news__tag">
+      <span class="tag" *ngIf="tag">
+        <a [href]="tag.url">{{ tag.title }}</a>
+      </span>
+    </div>
+  </div>
+</div>

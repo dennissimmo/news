@@ -1,1 +1,25 @@
-<p>add-news-dialog works!</p>
+<div class="wrapper">
+  <h3 mat-dialog-title>Додавання новини</h3>
+  <mat-dialog-content>
+    <form [formGroup]="newsFormGroup" class="add-news">
+      <mat-form-field>
+        <mat-label>Заголовок</mat-label>
+        <input matInput formControlName="title">
+        <mat-error *ngIf="newsFormGroup.controls['title'].hasError('maxlength')">
+          Max allowed length is {{ maxSymbolLength }} symbols
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Опис</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+        <mat-error *ngIf="newsFormGroup.controls['description'].hasError('maxlength')">
+          Max allowed length is {{ maxSymbolLength * 2 }} symbols
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close color="accent">Скасувати</button>
+    <button mat-raised-button color="primary" [disabled]="!newsFormGroup.valid" (click)="addNews()">Додати</button>
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,110 @@
+@import "base/variables";
+
+.news-card {
+  display: flex;
+  background-color: white;
+  gap: .5rem;
+  padding: .5rem .25rem;
+
+  &__image {
+    flex: 0 0 160px;
+
+    img {
+      object-fit: cover;
+      height: 85px;
+      width: 100%;
+    }
+
+    @media screen and (max-width: $tablet) {
+      display: none;
+    }
+  }
+
+  &__content {
+
+  }
+
+  .news {
+    display: flex;
+    flex-direction: column;
+
+    &__information {
+      display: flex;
+    }
+
+    .information {
+      display: flex;
+      gap: .5rem;
+      color: rgb(130, 130, 130);
+      align-items: center;
+
+      &__date {
+
+      }
+
+      .date {
+        margin-left: -2px;
+        display: flex;
+        align-items: center;
+        gap: .25rem;
+
+        &__text {
+
+        }
+      }
+
+      &__views {
+
+      }
+
+      .views {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+
+        &__icon {
+
+        }
+
+        &__count {
+
+        }
+      }
+
+      .separator {
+        width: 1px;
+        height: 14px;
+        top: 5px;
+        background-color: rgb(130, 130, 130);
+      }
+
+      .icon {
+        font-size: 20px;
+        height: 20px;
+        width: 20px;
+      }
+    }
+
+    &__title {
+      font-weight: 600;
+      font-size: 1rem;
+
+      &:hover {
+        cursor: pointer;
+        color: $primary;
+      }
+    }
+
+    &__tag {
+      margin-top: auto;
+      .tag {
+
+        a {
+          cursor: pointer;
+          text-decoration: unset;
+          color: inherit;
+        }
+      }
+    }
+  }
+}

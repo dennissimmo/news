@@ -1,1 +1,7 @@
-<p>news-details works!</p>
+<div class="container" *ngIf="selectedNews">
+  <div class="news-details">
+    <h3 class="news-details__title">{{ selectedNews.title }}</h3>
+    <p class="news-details__description">{{ selectedNews.description }}</p>
+    <button mat-raised-button (click)="onClose()">Закрити опис</button>
+  </div>
+</div>

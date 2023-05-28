@@ -2,11 +2,11 @@ export interface News {
   ID: string;
   title: string;
   description: string;
-  date?: string;
-  link?: string;
-  isTop?: boolean;
+  date: string;
   commentsCount: number;
   viewCount: number;
+  link?: string;
+  isTop?: boolean;
   tags?: Tag[];
   image?: string;
   imageSource?: string;

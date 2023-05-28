@@ -1,5 +1,8 @@
+@import "./base/variables";
+
 .slider {
   .slide {
+    display: flex;
     height: 100%;
     position: absolute;
     top: 0;
@@ -7,6 +10,46 @@
     width: 100%;
     margin: auto;
     transition: transform 0.5s, opacity 0.5s, z-index 0.5s;
+
+    img {
+      width: 100%;
+    }
+
+    .slider-caption {
+      position: absolute;
+      padding: 1.25rem 0.5rem;
+      text-align: center;
+      color: black;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgb(230, 232, 247, .7);
+      border-radius: 10px;
+      transition: all .3s;
+
+      @media screen and (max-width: $tablet) {
+        padding: .25rem;
+      }
+
+      .title {
+        font-size: 1.1rem;
+        font-weight: 500;
+
+        @media screen and (max-width: $tablet) {
+          margin-bottom: .5rem;
+          font-size: .9rem;
+        }
+      }
+
+      .description {
+        font-size: 1rem;
+
+        @media screen and (max-width: $tablet) {
+          font-size: .7rem;
+        }
+      }
+
+    }
   }
 
   .slide.active {

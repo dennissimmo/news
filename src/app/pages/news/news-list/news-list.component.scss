@@ -1,0 +1,20 @@
+@import "base/variables";
+
+
+.news-list {
+  width: 100%;
+
+  &__item {
+    min-height: 96px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $border-color;
+    }
+  }
+
+}
+
+
+:host {
+  display: flex;
+}
