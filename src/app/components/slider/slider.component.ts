@@ -5,7 +5,7 @@ import { AfterContentChecked, AfterContentInit, Component, Input, OnDestroy } fr
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss']
 })
-export class SliderComponent implements AfterContentInit, AfterContentChecked, OnDestroy {
+export class SliderComponent implements AfterContentChecked, OnDestroy {
 
   @Input() controls: boolean;
   @Input() autoPlay: boolean;
@@ -17,18 +17,6 @@ export class SliderComponent implements AfterContentInit, AfterContentChecked, O
   slidesAmount: number;
   slide: number;
   intervalId: number;
-
-  ngAfterContentInit(): void {
-    this.slides = document.getElementsByClassName('slide');
-    if (this.slides && this.slides.length > 0) {
-      this.slidesAmount = this.slides.length;
-      this.slide = 0;
-      this._setInitialClasses();
-      if (this.autoPlay) {
-        this._autoPlayInterval();
-      }
-    }
-  }
 
   ngAfterContentChecked(): void {
     this.slides = document.getElementsByClassName('slide');

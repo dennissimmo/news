@@ -38,7 +38,7 @@ export class NewsDetailsComponent implements OnDestroy {
     ).subscribe(([news, id]) => this.handleNewsChanged(id));
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }

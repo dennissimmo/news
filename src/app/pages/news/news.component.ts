@@ -38,7 +38,7 @@ export class NewsComponent implements OnInit, OnDestroy {
     return this._newsService.getLastNews();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.isLoading = true;
     this._newsService.newsSelectionSubject
       .pipe(
