@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, Component, Input, OnDestroy } from '@angular/core';
+import { AfterContentChecked, Component, Input, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-slider',

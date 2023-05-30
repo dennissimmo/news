@@ -82,11 +82,7 @@ export class NewsService {
   }
 
   public closeDetails(): void {
-    this._router.navigate([{
-      outlets: {
-        details: null
-      }
-    }], );
+    this._router.navigate(['news']);
   }
 
 }

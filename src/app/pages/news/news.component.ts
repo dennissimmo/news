@@ -18,7 +18,6 @@ export class NewsComponent implements OnInit, OnDestroy {
   isLoading: boolean;
   newsSubject: BehaviorSubject<News[]>;
   errorMessage: string;
-  showDetailsPageMode: DisplayType;
   destroy$: Subject<void>;
 
   constructor(
@@ -45,11 +44,7 @@ export class NewsComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$)
       )
       .subscribe(news => {
-        this._router.navigate([{
-          outlets: {
-            details: 'news-details' + '/' + news.ID
-          }
-        }], );
+        this._router.navigate(['news', news.ID]);
     })
 
     const newsObserver: Partial<Observer<News[]>> = {

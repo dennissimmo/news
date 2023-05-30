@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NewsService } from "../../../services/news.service";
 import { News } from "../../../models/news.interface";
 
@@ -10,7 +10,6 @@ import { News } from "../../../models/news.interface";
 export class NewsListComponent {
 
   @Input() newsList: News[];
-  @Output() newsSelected: EventEmitter<News> = new EventEmitter<News>();
 
   constructor(
     private _newsService: NewsService
